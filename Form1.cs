@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -13,7 +12,7 @@ namespace Typograf
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             if(!string.IsNullOrEmpty(textBox1.Text))
             {
@@ -33,7 +32,7 @@ namespace Typograf
                 MessageBox.Show("Вы ничего не ввели");
             }
         }
-        private string WhiteSpace(string words)
+        public string WhiteSpace(string words)
         {
             string result = words;
             while(result.Contains("  "))
@@ -42,7 +41,7 @@ namespace Typograf
             }
             return result;
         }
-        private string Punctuation(string words)
+        public string Punctuation(string words)
         {
             string[] punctuation = new string[] { ",", ".", ":", ";", "!", "?"};
             string[] open = new string[] {"(", "«" };
@@ -90,7 +89,7 @@ namespace Typograf
             }
             return result;
         }
-        private string PlusMinus(string words)
+        public string PlusMinus(string words)
         {
             string result = words;
             while (result.Contains("(+,−)"))
@@ -99,7 +98,7 @@ namespace Typograf
             }
             return result;
         }
-        private string TechnicalSpecs(string words)
+        public string TechnicalSpecs(string words)
         {
             string result = words;
             for (int i = 0; i < words.Length; i++)
@@ -113,18 +112,18 @@ namespace Typograf
             return result;
         }
 
-        private bool IsNumeric(string word)
+        public bool IsNumeric(string word)
         {
             double num;
             return double.TryParse(word, out num);
         }
 
-        private bool IsUnit(string word)
+        public bool IsUnit(string word)
         {
             string[] units = new string[] { "м", "см", "мм", "км", "кг", "г", "А", "мА", "кА", "В", "мВ", "кВ", "Вт", "мВт", "кВт", "Дж", "кДж", "ебар", "Па", "кПа", "бар", "мбар", "мм рт. ст.", "об/мин", "рад/с", "%" };
             return units.Contains(word);
         }
-        private string YUX(string words)
+        public string YUX(string words)
         {
             string result = words;
             while (result.Contains(" х"))
@@ -133,7 +132,7 @@ namespace Typograf
             }
             return result;
         }
-        private string Russia(string words)
+        public string Russia(string words)
         {
             string result = words;
             while (result.Contains("рашка"))
